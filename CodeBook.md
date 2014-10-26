@@ -36,6 +36,13 @@ has been replaced by a period / full-stop. For example, the variable
 has been named
 
     tBodyAcc.mean...X
+    
+The mean of these variables are named by prepending "mean.of" to them. For example,
+
+    mean.of.tBodyAcc.mean...X
+    
+These variables are used in the *descriptive.txt* file, outputted by the run_analysis.R
+script.
 
 ## Processing steps
 
