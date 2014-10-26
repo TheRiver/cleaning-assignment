@@ -20,6 +20,11 @@
 
 library(plyr)
 
+# This function reads the training and testing data sets and returns
+# them in a merged data set, annotated with the subject and activity.
+#
+# It defaults to looking in the current working directory for the data,
+# but this can be modified by passing an appropriate directory as argument.
 read_merged_data <- function(dir = '.') {    
     activities <- read_activities(file.path(dir, 'activity_labels.txt'))  
     variable_names <- read_variable_names(file.path(dir, 'features.txt'))
@@ -29,6 +34,9 @@ read_merged_data <- function(dir = '.') {
     rbind(test_data, training_data)
 }
 
+# This function takes the merged data frame returned 
+# from *read_merged_data* and returns the cleaned data frame 
+# of mean values.
 calculate_descriptive_data <- function(data) {
     data <- ddply(data, .(subject,activity),colwise(mean))
     names <- colnames(data)
@@ -42,23 +50,50 @@ read_activities <- function(file = './activity_labels.txt') {
     read.table(file, col.names = c("id", "activity"))
 }
 
+# Reads the variable names
 read_variable_names <- function(file = './features.txt') {
     read.table(file, col.names = c("id", "variables"))
 }
 
+# Returns the indexes of the variables that use the mean. This is
+# calculated by performing a substring operation.
+# 
+# The argument is the data frame of variable names returned from 
+# *read_variable_names*
 variables_with_mean <- function(variables) {
     which(as.logical(sapply(variables$variable, function(d) grep("mean()", d, fixed=T))))
 }
 
+# Returns the indexes of the variables that use the standard deviation. 
+# This is by calculated using a substring operation.
+# 
+# The argument is the data frame of variable names returned from 
+# *read_variable_names*
 variables_with_std <- function(variables) {
     which(as.logical(sapply(variables$variable, function(d) grep("std()", d, fixed=T))))
 }
 
+# Returns the indexes of the variables that should be kept. These are those
+# that use the mean or the standard deviation.
+# 
+# The argument is the data frame of variable names returned from 
+# *read_variable_names*
 variables_to_keep <- function(variables) {
     sort(c(variables_with_mean(variables), variables_with_std(variables)))
 }
 
-
+# This reads a specific data set, either the testing or the training data set.
+# It then adds the subject and activity information to this set, and subsets
+# it to use only those variables that are calculated from the mean or the 
+# standard deviation.
+#
+# Parameters:
+# - activities: a data frame of activity names, as returned by *read_activities*.
+# - variable_names: a data frame of variable names returned from 
+#                   *read_variable_names*
+# - dir: A directory containing the data set
+# - type: A string, either 'test' or 'train', depending on whether this should read
+#         the testing or training data.
 read_data_set <- function(activities, variable_names, dir = './test', type="test") {
     if (!file.exists(dir)) stop(paste("Unable to access the", dir, "directory"));
     
@@ -71,6 +106,8 @@ read_data_set <- function(activities, variable_names, dir = './test', type="test
     cbind(subject = subjects[1,], activity = activities[y_data[,1], 2], x_data)
 }
 
+# Here we read the merged data, calculate the descriptive data
+# and then output this to descriptive.txt
 data <- read_merged_data()
 descriptive <- calculate_descriptive_data(data)
 write.table(descriptive, file = 'descriptive.txt', row.names=F)
