@@ -12,7 +12,7 @@ read_merged_data <- function(dir = '.') {
 calculate_descriptive_data <- function(data) {
     data <- ddply(data, .(subject,activity),colwise(mean))
     names <- colnames(data)
-    colnames(data) <- c(names[1:2], unlist(lapply(names[3:length(names(tmp3))], function(s) paste("mean.of.", s, sep=''))))
+    colnames(data) <- c(names[1:2], unlist(lapply(names[3:length(names)], function(s) paste("mean.of.", s, sep=''))))
     
     data    
 }
@@ -50,3 +50,7 @@ read_data_set <- function(activities, variable_names, dir = './test', type="test
     
     cbind(subject = subjects[1,], activity = activities[y_data[,1], 2], x_data)
 }
+
+data <- read_merged_data()
+descriptive <- calculate_descriptive_data(data)
+write.table(descriptive, file = 'descriptive.txt', row.names=F)
