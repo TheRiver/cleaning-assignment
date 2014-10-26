@@ -1,10 +1,10 @@
 # Cleaning Assignment
 
 [run_analysis.R](https://github.com/TheRiver/cleaning-assignment/blob/master/run_analysis.R)
-is an R script that will take the spatial data obtained from a smartphone (see the code 
-book for more information on this data), clean and summarise the data as a collection
-of means grouped by the subject the data was collected from, as well as the activity
-that subject was performing at the time.
+is an R script that takes the spatial data obtained from a smartphone (see the code 
+book for more information on this data), cleans this data, and finally summarises 
+it as a collection of means. These means are grouped by the subject the data
+was collected from, as well as the activity being performed at the time.
 
 This code and github repository are part of the coursework requirement for the 
 *Getting and Cleaning Data* class on coursera. The code is licensed under the MIT
