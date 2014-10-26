@@ -7,5 +7,7 @@ The data is described in CodeBook.md.
 
 ## Running the code
 
-
+Install plyr
+    
+    install.package('plyr')
 
