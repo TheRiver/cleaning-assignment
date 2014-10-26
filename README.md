@@ -6,6 +6,10 @@ book for more information on this data), clean and summarise the data as a colle
 of means grouped by the subject the data was collected from, as well as the activity
 that subject was performing at the time.
 
+This code and github repository are part of the coursework requirement for the 
+*Getting and Cleaning Data* class on coursera. The code is licensed under the MIT
+license. 
+
 ## Files distributed with this assignment
 
 1. *README.md*, which is this file, and describes how to run the code, as well
@@ -33,5 +37,26 @@ in the directory containing the data using the following command:
 It will output a file called *description.txt* in that directory called. This
 file will list the means of all the measurement variables grouped by subject and activity.
 
+## License
+
+Copyright (c) 2014 Rudy Neeser
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 
 
