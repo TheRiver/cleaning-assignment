@@ -48,6 +48,6 @@ and standard deviation values. These were identified from the *features.txt*
 as those using the *mean()* and *std()* values. 
 
 We then calculated the mean of all of these variables, grouped by subject and 
-activity. These are outputted by the run_analysis.R script in the descriptions.txt
+activity. These are outputted by the run_analysis.R script in the descriptive.txt
 file. 
 

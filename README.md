@@ -34,7 +34,7 @@ in the directory containing the data using the following command:
 
     source('path/to/run_analysis.R')
     
-It will output a file called *description.txt* in that directory called. This
+It will output a file called *descriptive.txt* in that directory called. This
 file will list the means of all the measurement variables grouped by subject and activity.
 
 ## License
